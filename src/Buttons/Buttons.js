@@ -14,7 +14,8 @@ export default class Buttons extends Component {
 
     selectButton = (e) => {
         const name = e.target.name
-        this.setState({ [name]: !this.state.name })
+        const toggle = !this.state.name
+        this.setState({ [name]: toggle })
         this.props.showButtonCategory(name)
     }
 

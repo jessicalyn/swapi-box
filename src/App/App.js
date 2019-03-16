@@ -3,6 +3,8 @@ import './App.css';
 import { fetchAnything } from '../Utils/fetchAnything'
 import Buttons from '../Buttons/Buttons'
 import { addHomeworldData, addSpeciesData } from '../Utils/simplifyPeople'
+import { simplifyPlanets } from '../Utils/simplifyPlanets'
+import { simplifyVehicles } from '../Utils/simplifyVehicles'
 import CardContainer from '../Cards/CardContainer'
 
 class App extends Component {
@@ -36,17 +38,30 @@ class App extends Component {
     } else if(category === "people") {
       const unfilteredData = await fetchAnything(`https://swapi.co/api/${category}`)
       this.showPeople(unfilteredData)
+    } else if(category === "planets") {
+      const unfilteredData = await fetchAnything(`https://swapi.co/api/${category}`)
+      this.showPlanets(unfilteredData)
+    } else if(category === "vehicles") {
+      const unfilteredData = await fetchAnything(`https://swapi.co/api/${category}`)
+      this.showVehicles(unfilteredData)
     }
   }
 
   showPeople = async (unfilteredData) => {
     const addHomeworld = await addHomeworldData(unfilteredData)
-    // console.log("with homeworld", addHomeworld)
-    const addSpecies = await addSpeciesData(addHomeworld)
-    // console.log("all cleaned", addSpecies)
-    this.setState({ currentCards: addSpecies })
+    const simplifiedPeopleData = await addSpeciesData(addHomeworld)
+    this.setState({ currentCards: simplifiedPeopleData })
   }
 
+  showPlanets = async (unfilteredData) => {
+    const simplifiedPlanetData = await simplifyPlanets(unfilteredData)
+    this.setState({ currentCards: simplifiedPlanetData })
+  }
+
+  showVehicles = async (unfilteredData) => {
+    const simplifiedVehicleData = await simplifyVehicles(unfilteredData)
+    this.setState({ currentCards: simplifiedVehicleData })
+  }
 
   render() {
     const { title, date, crawl } = this.state.movie
