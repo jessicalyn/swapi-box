@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { fetchAnything } from '../Utils/fetchAnything'
+import Buttons from '../Buttons/Buttons'
+import { addHomeworldData, addSpeciesData } from '../Utils/simplifyPeople'
+import CardContainer from '../Cards/CardContainer'
 
 class App extends Component {
   constructor(){
@@ -8,7 +11,8 @@ class App extends Component {
     this.state = {
       error: "",
       filmNumber: Math.floor((Math.random() * 7) + 1),
-      movie: {}
+      movie: {},
+      currentCards: []
     }
   }
 
@@ -26,17 +30,33 @@ class App extends Component {
     }})
   }
 
+  showButtonCategory = async (category) => {
+    if(category === "favorites"){
+      this.setState({ error: "Favorites doesn't work yet, Jessica"})
+    } else if(category === "people") {
+      const unfilteredData = await fetchAnything(`https://swapi.co/api/${category}`)
+      this.showPeople(unfilteredData)
+    }
+  }
+
+  showPeople = async (unfilteredData) => {
+    const addHomeworld = await addHomeworldData(unfilteredData)
+    // console.log("with homeworld", addHomeworld)
+    const addSpecies = await addSpeciesData(addHomeworld)
+    // console.log("all cleaned", addSpecies)
+    this.setState({ currentCards: addSpecies })
+  }
+
+
   render() {
     const { title, date, crawl } = this.state.movie
+    const { error, currentCards } = this.state
     return (
       <div className="App">
-        { this.state.error && <p>Error: { this.state.error }</p>}
+        { error && <p>Error: { error }</p>}
         <h1>SwapiBox</h1>
-        <div className="buttonContainer">
-          <button>PEOPLE</button>
-          <button>PLANETS</button>
-          <button>VEHICLES</button>
-        </div>
+        <Buttons showButtonCategory={ this.showButtonCategory }/>
+        <CardContainer currentCards={ currentCards } />
         <div className="movieContainer">
           <h2>{ title }</h2>
           <h3>{ date }</h3>
