@@ -7,7 +7,9 @@ const simplifyVehicles = ({ results }) => {
             name: vehicle.name,
             model: vehicle.model,
             class: vehicle.vehicle_class,
-            numOfPassengers: vehicle.passengers
+            numOfPassengers: vehicle.passengers,
+            category: "vehicles",
+            favorite: false
         }
         return vehicleData
     })

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme'
+// import { fetchAnything } from '../Utils/fetchAnything'
+// import { addHomeworldData } from '../Utils/simplifyPeople'
 
 const mockUnfiltered = {
   characters: [
@@ -46,6 +48,11 @@ const mockMovie = {
     title: "Return of the Jedi"
 };
 
+const mockUrl = "https://swapi.co/api/people"
+
+
+// const addHomeworldData = jest.mock('../Utils/simplifyPeople', () => ({addHomeworldData: ()=> mockUnfiltered}))
+
 describe('App', () => {
   let wrapper;
 
@@ -72,14 +79,21 @@ describe('App', () => {
   });
 
   it('should invoke fetch call for people when people button clicked', () => {
-    wrapper.instance().showMovie("people")
+    wrapper.instance().fetchAnything = jest.fn()
+    wrapper.instance().showButtonCategory("people")
+
+    wrapper.instance().fetchAnything(mockUrl)
     wrapper.instance().showPeople(mockUnfiltered)
   });
 
-  it.skip('should set current cards state to people when show people invoked', () => {
+  it('should set current cards state to people when show people invoked', () => {
+    wrapper.instance().addHomeworldData = jest.fn()
+    wrapper.instance().addSpeciesData = jest.fn()
+
     wrapper.instance().showPeople(mockUnfiltered)
     wrapper.instance().addHomeworldData(mockUnfiltered)
     wrapper.instance().addSpeciesData(mockUnfiltered)
+    
     expect(wrapper.state("currentCards")).toEqual(mockUnfiltered)
   })
 })

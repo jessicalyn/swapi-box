@@ -9,7 +9,9 @@ const simplifyPlanets = ({ results }) => {
             terrain: planet.terrain,
             population: planet.population,
             climate: planet.climate,
-            residents: residentsData
+            residents: residentsData,
+            category: "planets",
+            favorite: false
         }
         return planetData
     })

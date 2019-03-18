@@ -8,7 +8,9 @@ const addHomeworldData = ({ results }) => {
             name: person.name, 
             homeworld: homeworldData.name, 
             homeworldPop: homeworldData.population, 
-            species: person.species
+            species: person.species,
+            category: "person",
+            favorite: false
         }
         return personData
     })
