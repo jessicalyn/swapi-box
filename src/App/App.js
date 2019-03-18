@@ -12,14 +12,14 @@ class App extends Component {
     super();
     this.state = {
       error: "",
-      filmNumber: Math.floor((Math.random() * 7) + 1),
       movie: {},
       currentCards: []
     }
   }
 
   componentDidMount = async () => {
-    const url = `https://swapi.co/api/films/${this.state.filmNumber}`
+    const randomNumber = Math.floor((Math.random() * 7) + 1)
+    const url = `https://swapi.co/api/films/${randomNumber}`
     const unfilteredMovie = await fetchAnything(url)
     this.showMovie(unfilteredMovie)
   }
