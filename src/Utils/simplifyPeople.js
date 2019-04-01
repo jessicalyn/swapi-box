@@ -1,4 +1,3 @@
-import React from 'react'
 import { fetchAnything } from './fetchAnything'
 
 const addHomeworldData = ({ results }) => {
@@ -9,7 +8,7 @@ const addHomeworldData = ({ results }) => {
             homeworld: homeworldData.name, 
             homeworldPop: homeworldData.population, 
             species: person.species,
-            category: "person",
+            category: "people",
             favorite: false
         }
         return personData

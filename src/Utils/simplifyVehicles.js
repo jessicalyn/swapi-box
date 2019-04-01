@@ -1,6 +1,3 @@
-import React from 'react'
-import { fetchAnything } from './fetchAnything'
-
 const simplifyVehicles = ({ results }) => {
     const getVehicleData = results.map(vehicle => {
         const vehicleData = {
