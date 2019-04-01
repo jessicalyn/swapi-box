@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match a snapshot with all data passed in 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Connect(App)
+    currentCards={
+      Array [
+        Object {
+          "category": "people",
+          "name": "Luke Skywalker",
+        },
+        Object {
+          "category": "people",
+          "name": "Chewbaca",
+        },
+      ]
+    }
+    error="Something went wrong"
+    fetchedData={
+      Array [
+        Object {
+          "category": "people",
+          "name": "Luke Skywalker",
+        },
+        Object {
+          "category": "people",
+          "name": "Chewbaca",
+        },
+        Object {
+          "category": "planet",
+          "name": "Earth",
+        },
+        Object {
+          "category": "vehicle",
+          "name": "Death Star",
+        },
+      ]
+    }
+    isLoading="Your content is loading"
+    movie={
+      Object {
+        "crawl": "Luke Skywalker has returned to his home planet of Tatooine in an attempt to rescue his friend Han Solo from the clutches of the vile gangster Jabba the Hutt. Little does Luke know that the GALACTIC EMPIRE has secretly begun construction on a new armored space station even more powerful than the first dreaded Death Star. When completed, this ultimate weapon will spell certain doom for the small band of rebels struggling to restore freedom to the galaxy...",
+        "date": "1983-05-25",
+        "title": "Return of the Jedi",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": [Function],
+    },
+    "ref": null,
+    "rendered": [Function],
+    "type": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": Object {
+        "$$typeof": Symbol(react.context),
+        "Consumer": [Circular],
+        "Provider": Object {
+          "$$typeof": Symbol(react.provider),
+          "_context": [Circular],
+        },
+        "_calculateChangedBits": null,
+        "_currentRenderer": null,
+        "_currentRenderer2": null,
+        "_currentValue": null,
+        "_currentValue2": null,
+        "_threadCount": 0,
+      },
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": [Function],
+      },
+      "ref": null,
+      "rendered": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.context),
+        "_calculateChangedBits": null,
+        "_context": Object {
+          "$$typeof": Symbol(react.context),
+          "Consumer": [Circular],
+          "Provider": Object {
+            "$$typeof": Symbol(react.provider),
+            "_context": [Circular],
+          },
+          "_calculateChangedBits": null,
+          "_currentRenderer": null,
+          "_currentRenderer2": null,
+          "_currentValue": null,
+          "_currentValue2": null,
+          "_threadCount": 0,
+        },
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;
